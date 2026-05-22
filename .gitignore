@@ -1,0 +1,25 @@
+# Terraform local state and cache
+*.tfstate
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+
+# Terraform variable files with secrets
+*.tfvars
+*.tfvars.json
+
+# Override files and CLI configs
+override.tf
+override.tf.json
+*_override.tf
+.terraformrc
+terraform.rc
+
+# Editor and OS files
+*.swp
+*.swo
+*.bak
+*.log
+.DS_Store
+.idea/
+.vscode/
