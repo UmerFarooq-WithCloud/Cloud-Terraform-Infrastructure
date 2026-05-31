@@ -1,8 +1,8 @@
-module "ec2_instance_for_private" {
+module "ec2_instance_for_private_app2" {
   depends_on = [module.vpc]
   source     = "terraform-aws-modules/ec2-instance/aws"
 
-  name = "private_instance"
+  name = "${var.envoirment}-app2"
 
   instance_type = var.instance_type
   ami           = data.aws_ami.amzlinux2.id
@@ -14,7 +14,7 @@ module "ec2_instance_for_private" {
 
 
   # count     = var.private_instance_count
-  user_data = file("${path.module}/ec2_web.sh")
+  user_data = file("${path.module}/app2.sh")
   tags      = local.common_tags
 }
 
