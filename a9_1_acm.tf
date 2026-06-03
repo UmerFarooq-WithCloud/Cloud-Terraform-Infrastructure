@@ -5,13 +5,14 @@ module "acm" {
   domain_name = trimsuffix(data.aws_route53_zone.My_route53.name, ".")
   zone_id     = data.aws_route53_zone.My_route53.zone_id
 
-  validation_method = "DNS"
+
 
   subject_alternative_names = [
-    "*.devsecflow.me",
+    "*.cyberfuck.codes",
 
   ]
 
+  validation_method   = "DNS"
   wait_for_validation = true
 
   tags = {
@@ -24,7 +25,7 @@ output "acm_certificate_arn" {
   value       = module.acm.acm_certificate_arn
 }
 
-output "validation_route53_record_fqdns" {
-  description = "List of FQDNs built using the zone domain and name."
-  value       = module.acm.validation_route53_record_fqdns
-}
+# output "validation_route53_record_fqdns" {
+#   description = "List of FQDNs built using the zone domain and name."
+#   value       = module.acm.validation_route53_record_fqdns
+# }
